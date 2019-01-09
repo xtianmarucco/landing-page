@@ -1,0 +1,155 @@
+
+/* LINE 9 color function tells me how I name the colors to call em later on*/
+/* $COLORS is the function I used to order the colors o the  proyect*/
+/* @RETURN LINE 13 tells how I organize the colors and me /
+/* LINE 8 Lighting is a fuction that lightens a choosen color*/
+/* LINE 20 $DESKTOP sets the minimum width for the movil view*/
+/* LINE 21 A mixin lets you make groups of CSS declarations that you want to reuse throughout your site.
+ You can even pass in values to make your mixin more flexible. */
+ /* LINE 49, 68,82 I used mixins to set the width to change to a desktop view and made 
+ some changes on the css*/
+ /* LINE 73, 83, 123, I Used some features of css grid to make the necessary changes */
+
+
+ 
+$colors: (
+    primary: #5a9c6f,
+    primary-dark:darken(#5a9c6f, 40%),
+    primary-light:lighten(#5a9c6f, 20%),
+    accent: #fff6bb,
+    secondary: #FFF
+);
+$padding:15px;
+$borders:15px;
+@function color($color-name){
+@return map-get($colors, $color-name )
+}
+ $desktop:840px;
+ @mixin desktop {
+     @media(min-width: #{$desktop}){
+         @content;
+     }
+     
+ }
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    #logo{  
+        font-size: 40px;
+        font-family: 'Montserrat', sans-serif;
+    color: #FFF;
+    padding: $padding;
+    display: block;
+}
+    #bg {
+        clip-path: polygon(0 0, 100% 0, 100% 76%, 43% 100%, 0 100%);
+        background-color: color(primary);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+
+        @include desktop {
+            clip-path: polygon(0 0, 88% 0, 67% 100%, 0 100%);
+
+
+        }
+    }} 
+    header{
+        color: #FFF;
+        text-decoration: none;
+        }
+    a{
+        text-decoration:none;
+    font-weight: bold;
+    font-size: 20PX;
+}   
+#subtitle{
+    font-size: 25px;
+}
+main{
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "primary card"}
+
+
+    section#card{
+        background-color: #e4e1e1;
+        padding: 20px;
+        margin: 1em auto;
+        border-radius: $borders;
+        box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        width: 80%;
+        @include desktop {
+            grid-area: card;
+            height: fit-content;
+            align-self:center;
+            margin:1em;
+
+        }
+        ul{
+            list-style-type: none;
+        margin: 0; padding: o;
+        li{margin-bottom:10px}
+        span {position: absolute;
+            content:'';
+            width: 23px;
+            height: 23px;
+            background-color: color(primary-light)
+
+            ;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-top: 9px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+        
+        
+               strong{
+                   display: inline-block;
+                   margin-left: max(40px);
+                   margin-top : 10px;
+         }
+      }
+    }
+  section#primary{
+ color:white;
+ padding: $padding;
+ text-align: center;
+ @include desktop {
+    grid-area: primary;
+    text-align: left;
+    margin: 4em 0 0 4em;
+
+}
+ h1{
+     font-size: 30px;
+     margin-top : 10px;
+     text-transform: uppercase;
+     @include desktop {
+        width: 80%;
+        font-size: 2.5em;
+        line-height: 1em;
+
+    }
+ }
+ p{font-size: 1.4em;
+
+ }
+ a{
+     color: color(primary-dark);
+     border-radius:  $borders;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-weight: bold;
+     background-color: color(accent);
+     font-display: block;
+     text-align: center;
+     margin: 50px auto 0 auto;
+     padding: $padding;
+
+ }
+ }
+} 

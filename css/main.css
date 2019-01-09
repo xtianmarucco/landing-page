@@ -1,0 +1,162 @@
+/* LINE 9 color function tells me how I name the colors to call em later on*/
+/* $COLORS is the function I used to order the colors o the  proyect*/
+/* @RETURN LINE 13 tells how I organize the colors and me /
+/* LINE 8 Lighting is a fuction that lightens a choosen color*/
+/* LINE 20 $DESKTOP sets the minimum width for the movil view*/
+/* LINE 21 A mixin lets you make groups of CSS declarations that you want to reuse throughout your site.
+ You can even pass in values to make your mixin more flexible. */
+/* LINE 49, 68,82 I used mixins to set the width to change to a desktop view and made 
+ some changes on the css*/
+/* LINE 73, 83, 123, I Used some features of css grid to make the necessary changes */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+body #logo {
+  font-size: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: #FFF;
+  padding: 15px;
+  display: block;
+}
+
+body #bg {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 76%, 43% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 76%, 43% 100%, 0 100%);
+  background-color: #5a9c6f;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+@media (min-width: 840px) {
+  body #bg {
+    -webkit-clip-path: polygon(0 0, 88% 0, 67% 100%, 0 100%);
+            clip-path: polygon(0 0, 88% 0, 67% 100%, 0 100%);
+  }
+}
+
+header {
+  color: #FFF;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20PX;
+}
+
+#subtitle {
+  font-size: 25px;
+}
+
+@media (min-width: 840px) {
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "primary card";
+  }
+}
+
+main section#card {
+  background-color: #e4e1e1;
+  padding: 20px;
+  margin: 1em auto;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 80%;
+}
+
+@media (min-width: 840px) {
+  main section#card {
+    grid-area: card;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+  }
+}
+
+main section#card ul {
+  list-style-type: none;
+  margin: 0;
+  padding: o;
+}
+
+main section#card ul li {
+  margin-bottom: 10px;
+}
+
+main section#card ul span {
+  position: absolute;
+  content: '';
+  width: 23px;
+  height: 23px;
+  background-color: #98c4a6;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 9px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+main section#card ul strong {
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+main section#primary {
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+@media (min-width: 840px) {
+  main section#primary {
+    grid-area: primary;
+    text-align: left;
+    margin: 4em 0 0 4em;
+  }
+}
+
+main section#primary h1 {
+  font-size: 30px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 840px) {
+  main section#primary h1 {
+    width: 80%;
+    font-size: 2.5em;
+    line-height: 1em;
+  }
+}
+
+main section#primary p {
+  font-size: 1.4em;
+}
+
+main section#primary a {
+  color: #0f1b13;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #fff6bb;
+  font-display: block;
+  text-align: center;
+  margin: 50px auto 0 auto;
+  padding: 15px;
+}
+/*# sourceMappingURL=main.css.map */
